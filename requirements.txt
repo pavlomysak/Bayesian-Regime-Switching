@@ -2,3 +2,5 @@ numpy
 pandas
 pymc
 arviz
+matplotlib
+scipy
