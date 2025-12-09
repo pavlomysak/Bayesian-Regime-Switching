@@ -20,22 +20,18 @@ Key features:
 
 ## Model Summary
 
-Let \( Y_t \) denote daily log-returns and \( Z_t \in \{1, 2\} \) the latent volatility regime.
+Let $Y_t$ denote daily log-returns and $Z_t \in \{1, 2\}$ the latent volatility regime.
 
-- **Observation model**
-  \[
-  Y_t \mid Z_t = k \sim \mathcal{N}(0, \sigma_k), \quad k \in \{1,2\}
-  \]
+- **Sampling model**
+  $$Y_t \mid Z_t = k \sim \mathcal{N}(0, \sigma_k), \quad k \in \{1,2\}$$
 
 - **Latent regime dynamics**
-  \[
-  Z_t \mid Z_{t-1} \sim \text{Markov}(P), \quad
+$$Z_t \mid Z_{t-1} \sim \text{Markov}(P), \quad
   P =
   \begin{pmatrix}
   p_{00} & 1 - p_{00} \\
   1 - p_{11} & p_{11}
-  \end{pmatrix}
-  \]
+  \end{pmatrix}$$
 
 - **Priors**
   - Hierarchical Gamma priors on regime volatilities to allow partial pooling and asymmetric uncertainty
