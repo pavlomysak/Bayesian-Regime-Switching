@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1765247183.8533 "/Users/pavlomysak/Documents/GitHub/Bayesian-Regime-Switching/report/BayesianRegimeSwitching.tex" "BayesianRegimeSwitching.pdf" "BayesianRegimeSwitching" 1765247189.70794 0
-  "/Users/pavlomysak/Documents/GitHub/Bayesian-Regime-Switching/report/BayesianRegimeSwitching.tex" 1765247183.60729 20492 8f4a8e2fdf97572b246a82b743317532 ""
+["pdflatex"] 1765285727.57834 "/Users/pavlomysak/Documents/GitHub/Bayesian-Regime-Switching/report/BayesianRegimeSwitching.tex" "BayesianRegimeSwitching.pdf" "BayesianRegimeSwitching" 1765285733.24112 0
+  "/Users/pavlomysak/Documents/GitHub/Bayesian-Regime-Switching/report/BayesianRegimeSwitching.tex" 1765285727.3272 20191 fb6bdd9288880b77f0e13f1b1ba0dfee ""
   "/usr/local/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1246382020 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -75,15 +75,15 @@
   "/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1757867062 5467155 19efa205003f9ecad95fbbaa6ff24da1 ""
   "/usr/local/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt" 1741450574 3345740 46b66fdb0378f7bf5921b5eabf1762b8 ""
   "/usr/local/texlive/2025/texmf.cnf" 1741450484 577 418a7058ec8e006d8704f60ecd22c938 ""
-  "BayesianRegimeSwitching.aux" 1765247189.61899 3064 810da89a4e5d8fc4b297a4e3590fe050 "pdflatex"
-  "BayesianRegimeSwitching.tex" 1765247183.60729 20492 8f4a8e2fdf97572b246a82b743317532 ""
-  "images/descr_ts_and_hist.png" 1765138976.03323 720174 7888f5019aaf091e9e05f205d222b986 ""
-  "images/posterior_predictive.png" 1765216998.68149 296462 e4859419172fa9bde81cb778261e17a6 ""
-  "images/posterior_traces.png" 1765245316.52631 493655 0463e86e0849dc69f60887858056a849 ""
-  "images/prior_sensitivity.png" 1765239933.23064 161647 2c9b824e4aca861099f9c59abaa236f0 ""
-  "images/sigma_posterior.png" 1765241142.03618 44260 4b47d2e57abff90f11066d0439d30742 ""
-  "images/state_persistence_posterior.png" 1765239295.92264 44426 76cca4a4ac0723f62be4e8296aabe4f0 ""
-  "images/ts_regime_posterior.png" 1765206039.73444 593876 1de48519df21f779fdff1dd9a88ec2a2 ""
+  "BayesianRegimeSwitching.aux" 1765285733.17144 3064 810da89a4e5d8fc4b297a4e3590fe050 "pdflatex"
+  "BayesianRegimeSwitching.tex" 1765285727.3272 20191 fb6bdd9288880b77f0e13f1b1ba0dfee ""
+  "images/descr_ts_and_hist.png" 1765275185.32169 721435 45055712deb88a99f868a7170370f6ef ""
+  "images/posterior_predictive.png" 1765279467.80958 285696 738456dea34232c2141353c18dd9d0c6 ""
+  "images/posterior_traces.png" 1765279385.55714 491029 498a8148c80248aa39f1d4425d6a745e ""
+  "images/prior_sensitivity.png" 1765282146.87967 161678 9fd5223a7fdb2ad5d09125d2fc098ad7 ""
+  "images/sigma_posterior.png" 1765284284.98792 44157 79b63f419c1d7a3b1b952eb4649976d9 ""
+  "images/state_persistence_posterior.png" 1765279387.60037 45997 8650c484d6a44a0fc5edea66550bb9b6 ""
+  "images/ts_regime_posterior.png" 1765279391.27243 589837 c45ac26bf1ee9a1ce1b4c8e79e86ec22 ""
   (generated)
   "BayesianRegimeSwitching.aux"
   "BayesianRegimeSwitching.log"

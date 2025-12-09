@@ -120,7 +120,7 @@ where
 $$ P = \begin{pmatrix} 
     p_{00} & 1-p_{00} \\
     1-p_{11} & p_{11}
-\end{pmatrix}, \hspace{0.2cm} p_{00}, p_{11} \sim \text{Beta}(32, 10) $$
+\end{pmatrix}, \hspace{0.2cm} p_{00}, p_{11} \sim \text{Beta}(8, 1.2) $$
 
 and $p_{00}, p_{11}$ encode a broad preference for persistent regimes, reflecting the empirical observation that volatility clusters over multiple trading days.
 
@@ -147,7 +147,7 @@ via Gibbs-Metropolis sampling conditional on the current values of the continuou
 \subsection{Model Checking}
 \par
 Model adequacy and robustness were assessed through a combination of convergence diagnostics, posterior predictive checks, and prior sensitivity analysis. 
-Convergence of the Markov chain Monte Carlo sampler was evaluated using standard diagnostics, including rank-normalized $\hat{R}$ statistics and visual inspection 
+Convergence of the Markov chain Monte Carlo sampler was evaluated using standard diagnostics, including $\hat{R}$ statistics and visual inspection 
 of trace and autocorrelation function plots for all continuous model parameters. Effective sample sizes were monitored to ensure sufficient exploration of the posterior distribution, and chains 
 were run long enough to ensure proper mixing.
 
@@ -184,8 +184,8 @@ tails without overstating dispersion in the center of the distribution.
     \hline\hline
      & Mean & 2.5\% & 97.5\% \\
     \hline
-    Low-volatility ($\sigma_1$)  & 0.0061 & 0.0058 & 0.0065 \\
-    High-volatility ($\sigma_2$) & 0.0188 & 0.0176 & 0.0201 \\
+    Low-volatility ($\sigma_1$)  & 0.0062 & 0.0059 & 0.0066 \\
+    High-volatility ($\sigma_2$) & 0.0187 & 0.0175 & 0.0200 \\
     \hline\hline
     \end{tabular}
 
@@ -196,8 +196,8 @@ tails without overstating dispersion in the center of the distribution.
 
 \par
 Figure~\ref{fig:sigma_posterior} summarizes posterior inference for the regime-specific volatility parameters. The posterior distribution of the low-volatility regime, $\sigma_1$, is tightly concentrated, 
-yielding a narrow credible interval with posterior mean $\bar{\sigma}_1 = 0.0061$  $[0.0058, 0.0065]$. In contrast, the posterior for the high-volatility regime, $\sigma_2$, exhibits substantially greater dispersion, with posterior 
-mean $\bar{\sigma}_2 = 0.0188$ $[0.0176, 0.0201]$ and a noticeably wider credible interval.
+yielding a narrow credible interval with posterior mean $\bar{\sigma}_1 = 0.0062$  $[0.0059, 0.0066]$. In contrast, the posterior for the high-volatility regime, $\sigma_2$, exhibits substantially greater dispersion, with posterior 
+mean $\bar{\sigma}_2 = 0.0187$ $[0.0175, 0.0200]$ and a noticeably wider credible interval.
 
 \par
 This asymmetry in posterior uncertainty is economically and statistically intuitive. Periods of elevated market volatility are characterized by heterogeneous and episodic shocks, leading to greater uncertainty in 
@@ -221,8 +221,8 @@ This separation supports the interpretation of the latent state variable as a me
     \hline\hline
      & Mean & 2.5\% & 97.5\% \\
     \hline
-    Low-volatility ($p_{00}$)  & 0.9701 & 0.9583 & 0.9803 \\
-    High-volatility ($p_{11}$) & 0.9331 & 0.9058 & 0.9549 \\
+    Low-volatility ($p_{00}$)  & 0.9821 & 0.9727 & 0.9895 \\
+    High-volatility ($p_{11}$) & 0.9586 & 0.9366 & 0.9753 \\
     \hline\hline
     \end{tabular}
 
@@ -234,8 +234,8 @@ This separation supports the interpretation of the latent state variable as a me
 
 \par
 Posterior inference on the transition probabilities reinforces that the probability of remaining in the low-volatility regime, $p_{00}$, 
-exhibits a posterior mean of 0.97, implying highly persistent stable states. In contrast, the probability of remaining in the high-volatility regime, $p_{11}$,
-has a lower posterior mean of 0.9331, indicating that turbulent market conditions are less persistent and tend to revert more quickly. Consistent with posterior 
+exhibits a posterior mean of 0.9821, implying highly persistent stable states. In contrast, the probability of remaining in the high-volatility regime, $p_{11}$,
+has a lower posterior mean of 0.9586, indicating that turbulent market conditions are less persistent and tend to revert more quickly. Consistent with posterior 
 inference on the volatility parameters, uncertainty surrounding $p_{11}$ is notably larger than that of $p_{00}$, reflecting greater variability in the duration and dynamics of high-volatility episodes.
 
 \clearpage
@@ -281,8 +281,8 @@ This pattern suggests a modest tendency of the model to attribute a small fracti
 \par
 To formally assess tail fit, a posterior predictive p-value is computed using the test statistic
 $$ T(Y) = P(|Y_t| > q_{0.9}(|Y|)) $$
-where $q_{0.9}(|Y|)$ denotes the empirical 90th percentile of the absolute observed returns. The resulting posterior predictive p-value of 0.8087 indicates that replicated datasets 
-tend to exhibit slightly more extreme behavior than observed, providing quantitative support for the visual assessment while remaining within acceptable bounds for model adequacy.
+where $q_{0.9}(|Y|)$ denotes the empirical 90th percentile of the absolute observed returns. The resulting posterior predictive p-value of 0.8663 indicates that replicated datasets 
+tend to exhibit slightly more extreme behavior than observed, providing quantitative support for the visual assessment while on the edge for acceptable bounds for model adequacy.
 
 \begin{wrapfigure}{l}{0.48\textwidth}
 \vspace{-10pt}
@@ -301,11 +301,8 @@ Figure~\ref{fig:prior_sensitivity} summarizes posterior sensitivity of the struc
 volatility parameters, $\sigma_1$ and $\sigma_2$, is effectively unchanged under diffuse priors, indicating that volatility estimates are strongly data-driven and robust to prior perturbation.
 
 \par
-In contrast, posterior inference for the transition probabilities exhibits modest sensitivity to prior choice. Under the diffuse $\text{Beta}(1,1)$ prior, posterior means 
-for both $p_{00}$ and $p_{11}$ are slightly higher than those obtained under the more informative $\text{Beta}(32,10)$ specification. This pattern suggests that the 
-informative prior exerts meaningful shrinkage toward lower persistence, leading to conservative estimates of regime duration. The data, however, favor even 
-higher state persistence than originally encoded, particularly for the high-volatility regime.
-
+Posterior inference for the transition probabilities is similarly stable across prior choices. Under both the informative $\text{Beta}(8,1.2)$ specification and the diffuse $\text{Beta}(1,1)$ prior, 
+posterior means and credible intervals for $p_{00}$ and $p_{11}$ are nearly identical, suggesting that persistence estimates are primarily identified by the data rather than imposed by prior assumptions. 
 
 \subsection{Summary}
 
@@ -319,10 +316,9 @@ From a methodological perspective, achieving reliable MCMC convergence in the pr
 These considerations are central to the successful application of Bayesian methods in dynamic economic settings.
 
 
-
 \section{Appendix}
 
-Trace plots and autocorrelation diagnostics indicate satisfactory mixing across all chains for parameters of inferential interest; convergence summaries are reported in Table~\ref{tab:mcmc_diagnostics}.
+Trace plots and autocorrelation diagnostics indicate reasonable mixing across all chains for parameters of inferential interest; convergence summaries are reported in Table~\ref{tab:mcmc_diagnostics}.
 
 \begin{figure}[h]
     \centering
@@ -340,25 +336,17 @@ Trace plots and autocorrelation diagnostics indicate satisfactory mixing across 
         \toprule 
         \textbf{Parameter} & \textbf{ESS\textsubscript{bulk}} & \textbf{ESS\textsubscript{tail}} & \textbf{$\hat{R}$} \\
         \midrule 
-        $\tau$ & [Value] & [Value] & [Value] \\
-        $\theta_1$ & [Value] & [Value] & [Value] \\
-        $\theta_2$ & [Value] & [Value] & [Value] \\
-        $\sigma_1$ & [Value] & [Value] & [Value] \\
-        $\sigma_2$ & [Value] & [Value] & [Value] \\
-        $p_{00}$ & [Value] & [Value] & [Value] \\
-        $p_{11}$ & [Value] & [Value] & [Value] \\
-        $Z$ & [Value] & [Value] & [Value] \\
-        \bottomrule % Bottom thick line
+        $\tau$ & 5123 & 3572 & 1.00 \\
+        $\theta_1$ & 11907 & 9708 & 1.00 \\
+        $\theta_2$ & 8168 & 7387 & 1.00 \\
+        $\sigma_1$ & 122 & 455 & 1.02 \\
+        $\sigma_2$ & 159 & 442 & 1.01 \\
+        $p_{00}$ & 420 & 1407 & 1.01 \\
+        $p_{11}$ & 273 & 1117 & 1.01 \\
+        $Z_t$ (min/max) & 68 & 68 & 1.05 \\
+        \bottomrule
     \end{tabular}
 \end{table}
-
-
-
-
-
-
-
-
 
 
 \end{document}
