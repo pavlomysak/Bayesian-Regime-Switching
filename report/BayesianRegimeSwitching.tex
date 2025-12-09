@@ -134,9 +134,8 @@ partially pools information across regimes to improve computational stability wh
 $$ \theta_1 \sim \text{Gamma}(\mu=0.003, \sigma=0.001), \hspace{0.4cm} \theta_2 \sim \text{Gamma}(\mu=0.01, \sigma=0.005) $$
 $$ \tau \sim \text{Exponential}(25), \hspace{0.4cm} \sigma_k|\theta_k, \tau \sim \text{Gamma}(\mu=\theta_k, \sigma = \tau), \hspace{0.4cm} k = 1,2. $$
 
-The choices of $\theta_1$ and $\theta_2$ are partly informed by the preliminary empirical observation in figure \ref{fig:data_descr} where 
-the histogram of log-returns indicates that low-volatility returns are highly concentrated near zero, while extreme returns in the tails 
-are better captured by a higher-variance normal distribution. 
+To ensure identifiability of latent regimes and prevent label-switching, the priors on $\theta_1$ and $\theta_2$ are specified to induce an 
+ordering on the regime-specific volatility states ($\theta_1 < \theta_2$), and are partly informed by the preliminary empirical observation in figure \ref{fig:data_descr}.
 
 \par
 Posterior inference is conducted via a hybrid Markov chain Monte Carlo (MCMC) procedure. Continuous parameters
@@ -312,13 +311,14 @@ posterior distributions for regime-specific volatility levels. Low-volatility st
 arise episodically and revert more quickly, albeit with greater uncertainty.
 
 \par
-From a methodological perspective, achieving reliable MCMC convergence in the presence of latent state processes requires careful prior specification and substantial computational effort. 
+From a methodological perspective, achieving reliable MCMC convergence in the presence of latent state processes is difficult and requires careful prior specification and substantial computational effort. 
 These considerations are central to the successful application of Bayesian methods in dynamic economic settings.
 
 
 \section{Appendix}
 
-Trace plots and autocorrelation diagnostics indicate reasonable mixing across all chains for parameters of inferential interest; convergence summaries are reported in Table~\ref{tab:mcmc_diagnostics}.
+Trace plots and autocorrelation diagnostics indicate reasonable mixing across all chains for structural parameters, although the minimum effective sample size
+across the latent state sequence $\{Z_t\}$ is relatively low. Summaries are reported in Table~\ref{tab:mcmc_diagnostics}.
 
 \begin{figure}[h]
     \centering
